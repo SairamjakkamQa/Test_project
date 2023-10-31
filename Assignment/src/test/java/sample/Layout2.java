@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -102,6 +103,8 @@ public class Layout2 {
 
 		ac.dragAndDropBy(slide, offset, 0).perform();
 
+		driver.findElement(By.id("quantity")).sendKeys("3");
+
 	}
 
 	@Test(priority = 7)
@@ -137,6 +140,12 @@ public class Layout2 {
 		WebElement submitbtn = driver.findElement(By.xpath("//button[text()=' Submit']"));
 		Thread.sleep(5000);
 		// submitbtn.click();
+	}
+
+	@AfterClass
+
+	public void Teardown() {
+		driver.close();
 	}
 
 }
